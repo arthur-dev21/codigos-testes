@@ -23,3 +23,104 @@ para criar um metodo de testes ,
 
 1- crie um metodo com retorno void
 2- adcione @Test
+
+//cenario -> //acao -> //verficacao
+
+
+ORGANIZACAO DE ARQUIVOS DE TESTES------------------------------------
+
+porquestao de organizacao , os metodos de testes ficam forca do codigo  de regra 
+
+os codigos de teste nao entra para producao
+
+1- crie uma classe para realizar os testes com o nome -> "nome da classe de testes" + "testes"
+   ex : Locacaoservice -> LocacaoserviceTest
+
+(o eclipse tem a opcao de organizar os imports)
+
+2 - coloque seus testes em  -> src/test/java
+
+para o java em tempo de excucao o java junta as classes e classes de teste
+
+VANTAGENS 
+
+-organizacao , pois ficam na mesma esturuta de teste
+
+
+ASSERTIVAS ------------------------------------------------------------
+ela esta ligada a uma expressao logica 
+
+-Assert.assertTrue(true);
+-Assert.assertFalse(false);
+-Assert.assertEquals(1, 1); 
+-Assert.assertSame(u2, u2);
+-Assert.assertNull(u3);
+
+assertThat -. verifique que 
+
+1 - deve ser generico , pois podemos criar nossas propias assertivas
+2 - deixar o metodo mais fluido
+
+
+FORMAS DE DIVIDIR UM TESTE ------------------------------------
+
+testes deve ser idependentes e isolados , acada testes deve verificaruma falha isoladamente , ate os mais radicais dizem que
+cada testes deve ter uma unica assertiva
+
+vantagem -> a falha fixa mais facil de resolver , ate os loggies fica mais claro para descobrir
+
+o //cenario e //acao , vc nao repete , vc coloca em um unico lugar e so divide as //validacoes
+
+RULES --permite alterar o comportamentos dos testes
+
+
+TRATAMENTO DE EXCEPTIONS ----------------------------------------
+
+queremos verificar se o usuario so pode alugar um filme se ele estiver em estoque
+
+so colocar um try cath nao funciona para lidar com classes de test , poruq enao da pra saber onde erro esta 
+
+se adcionar no metodo de teste  throws Exception , ele vai gerar nao uma falha de teste mas um erro , vamos mostrar a direfenca entre falaha e erro
+
+FALHA VS ERRO -----------------------------------------------
+
+falhas ocorrem quando os teste ocorrem com exito , (compilacao de codigo por exemplo) porem algum condicao que era esperada nao era atendida
+
+erro -> ococrre quando algum problema durante a excucao do teste nao era esperad , ex , uma exception nao tratada
+
+@Test(expected = Exception.class)
+
+
+BEFORE  e AFTER -----------------------------------
+
+ja falamos que devemos evitar a repticao de codigo
+
+o JUnit permite usarmos duas anotacoes para colocarmos dados que irao se reptir durante e depois do codigo
+
+@Before , vc usara para colocar dados antes dos testes , ele excuta ANTES de cada METODO DE TESTES
+ ex : intanciacao de classes 
+
+@After  , dados que serao excutados depois de cada teste , ele excuta DEPOIS de cada METODO DE TESTES
+	ex :mensagem 
+
+
+private LocacaoService service;
+	
+	@Before
+	public  void setup() {
+		 service = new LocacaoService();
+	}
+
+caso vc querira coisaa que execute antes de todos os metodos , vasta vc usar o @beforeCalsse
+
+o JUnit para garantir que todos os testes sejam independentes ele reinicializa todas as variuaveis de instanca
+
+
+ORDEM DE EXCUCAO ------------------------------------
+
+o JUnit nao garante a ordem de excucao dos testes foram declarados
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING) -> adcionando isso na classe de testes , vc obriga ele a excutar em ordem alfabetica
+
+nao existe uma forma certa ou ideal , na duvida deixe o seus teste independenetes
+
