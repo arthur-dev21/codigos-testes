@@ -1,0 +1,25 @@
+JUnit --------------------
+
+para controlar a execucao de testes , foi criado um frmawork de testes unitarios para java
+
+TesteRunner -> quem vai executar os testes
+TestFixture -> pre condicoes
+TestSuites ->  onde posso elecar os testes que deve ser excutados
+Testeresultformater		padronizar os testes
+		validacao
+
+
+importando o JUnit
+
+	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.12</version>
+  	</dependency>
+
+coloque esse codigo em pom.xml
+
+para criar um metodo de testes ,
+
+1- crie um metodo com retorno void
+2- adcione @Test
