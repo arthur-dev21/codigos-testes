@@ -124,3 +124,13 @@ o JUnit nao garante a ordem de excucao dos testes foram declarados
 
 nao existe uma forma certa ou ideal , na duvida deixe o seus teste independenetes
 
+
+TDD ------------------------------------------------------------------------------------
+
+antes estavamos CRIANDO codigo , EXECUTANDO o TESTE  e REFATORANDO 
+
+agora vamos inverter
+
+vamos CRIAR OS TESTES , CRIAR O CODIGO E REFATORAR
+
+@ignore -> para evitar que um teste seja excutado
