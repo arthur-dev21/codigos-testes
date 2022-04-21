@@ -134,3 +134,11 @@ agora vamos inverter
 vamos CRIAR OS TESTES , CRIAR O CODIGO E REFATORAR
 
 @ignore -> para evitar que um teste seja excutado
+
+
+MOCKS ----------------------------------------------------------------------------------
+
+objetos mocks -> capaz de definir comportamentos dinamicos
+
+
+
