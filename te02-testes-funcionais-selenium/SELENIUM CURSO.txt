@@ -1,0 +1,106 @@
+baixar o webdriver
+
+crie um projeto maven para gerenciar as dependencias
+
+---INSTALANDO O WEBDRIVER DE FORMA CORRETA
+
+1-o caminho ate o driver , mude as barras para direita
+2-coloc ".exe" no final do cmainho
+
+
+-----------COMANDOS ---------------------
+-System.setProperty("DRIVER","PATH") - > seleciona o driver e o camainho ate ele
+-WebDriver driver = new ChromeDriver(); -> instancia o tipo de navegador que usaremos em nossos testes
+-driver.manage().window().setPosition(new Point(pos,pos)); -> define o tamanho da tela 
+-driver.get() -> busca por uma url
+-driver.getTitle() -> busca o titulo da pagina
+-driver.quit(); -> feahc a aba e todas as instancias do driver 
+-driver.get("file:///"+System.getProperty("user.dir")+"/src/main/resources/componentes.html");
+ (para pegar um site de dentro de um projeto maven)
+ 
+-driver.findElement(By.) -> busca um elemento , o parametro é por id, path , etc
+..sendKeys("Arthur"); -> insere um dado no campo
+.getAttribute("value") -> apos buscar um campo esse metodo recupera oo valor atribuido a ele
+driver.findElement(By.id("elementosForm:sexo:0")).click(); -> seleciona um elemnto de radiobutom e clica nele
+Assert.assertTrue(driver.findElement(By.id("elementosForm:sexo:0")).isSelected());
+(validacao pra ver se esta selecionado)
+----JUNNIT -------
+
+junit ja é uma dependencia do selenium
+
+-----TESTES SOZINHOS -------------------------------
+
+-consegui fazer um checkbox sozinho
+
+
+
+------ERROS ----------
+
+eerei o assertEquals -errei a ordem dos parametros
+-eerei os nome do chrome
+
+driver.quit vs driver.close
+
+.close() -> fecha so a aba do driver 
+.quit() -> fecha a aba e todas as instancias do driver 
+
+COLOQUE A PAGINA QUE VAI TERTAR EM RESOURCES 
+
+no radioButton eu esqueci de colocar o 0 na pesquisa
+driver.findElement(By.id("elementosForm:sexo")).click(); -> ERRADO
+driver.findElement(By.id("elementosForm:sexo:0")).click(); -> CERTO
+
+o que retorna quando vc faz um driver ?
+
+retorna uma instancia de WebElement
+
+para evitar o falso positivo , falhe seu testes
+
+na aula de combo de multipla escolha , meu testes nao estava passando pois eu usei o metodo para
+selecionar por texto visivel , mas eu estava colocando o id
+
+
+
+
+------------ELEMENTOS BASICOS -------------
+---textField
+driver.findElement(By.id("elementosForm:nome")).sendKeys("Arthur"); 
+(ele faz a busca pelo id e insere dados no campo )
+
+Assert.assertEquals("Arthur", driver.findElement(By.id("elementosForm:nome")).getAttribute("value"));
+(a validacao é o valor esperado , e buscamos o campo e seu valor atribuido)
+
+---TextArea possui varias linhas  para resolver isso
+
+driver.findElement(By.id("elementosForm:sugestoes")).sendKeys("Test\n\n\novalinha");
+
+----RADIOBUTTON -> sao elementos de marcacao no html onde so é possivel marcar 1 opcao por vez
+
+driver.findElement(By.id("elementosForm:sexo")).click();
+(ele busca o elemento e  clica)
+
+para validacao use o metos isSelected()
+
+----CHECKBOX -> vc pode selciona varios elementos po)
+
+----COMBO -> sao aquelas caixa de selecao do html 
+
+
+WebElement element = driver.findElement(By.id("elementosForm:escolaridade"));
+    	Select combo = new Select(element);
+    	combo.selectByIndex(3);
+		
+lembrando que o index comeca do 0 , ao colocar o 3 , na verdade vc esta selecionando o 4 elemento
+
+
+-----COMBO DE MULTIPLA ESCOLHA 
+
+o combo simples (acima) -> vc so seleciona um opcapo
+no combo de multipla escolha vc seleciona varios 
+
+
+-------BOTAO ---------------
+
+-PORCURANDO UM TEXTO
+
+
