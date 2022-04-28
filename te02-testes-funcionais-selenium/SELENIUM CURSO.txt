@@ -103,4 +103,15 @@ no combo de multipla escolha vc seleciona varios
 
 -PORCURANDO UM TEXTO
 
+DSL --------------------------------------------------------
 
+dsl é um linguagem propia , vamos criar metodos genericos por metodos especidficos
+com nomes mais descritivo
+
+PAGE OBJECTS ----------------------------------------
+
+CADA TELA DA APLICACAO DEVE TER UMA CLASSE PAGE ASSOCIADA A ELA , E CADA ELEMENTO DA TELA DEVE TER UM METODO UNTEGRADO A ELE 
+
+LOGIN      -> LOGINPAGE     -\
+FORMULARIO -> FORMULARIOPAGE -> PAGE
+PESQUISA   -> PESQUISA PAGE -/
