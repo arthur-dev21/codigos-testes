@@ -2,6 +2,27 @@ baixar o webdriver
 
 crie um projeto maven para gerenciar as dependencias
 
+
+
+--------------------DESAFIO ----------------------------------------
+
+testar uma aplicacao real 
+
+-entrar no site
+-se cadastrar
+-deslogar
+-fazer o login
+-fazer uma compra completa
+
+
+
+
+
+
+
+
+
+
 ---INSTALANDO O WEBDRIVER DE FORMA CORRETA
 
 1-o caminho ate o driver , mude as barras para direita
@@ -115,3 +136,47 @@ CADA TELA DA APLICACAO DEVE TER UMA CLASSE PAGE ASSOCIADA A ELA , E CADA ELEMENT
 LOGIN      -> LOGINPAGE     -\
 FORMULARIO -> FORMULARIOPAGE -> PAGE
 PESQUISA   -> PESQUISA PAGE -/
+
+
+--------------SUITE DE TESTES -----------------------
+
+CRIAMOS UMA CLASSE PARA EXECUTAR NOSSOS TESTES
+@RunWith(Suite.class)
+@SuiteClasses({
+	TesteCadastro.class,
+	TesteRegrasCadastro.class,
+	TesteCampoTreinamento.class
+})
+
+COM ELA  PODEMOS CONTROLAR A EXECUAO 
+
+
+--------------------XPATH
+xpath ralitivo vs absoluto
+
+absoluto -> é o cmainho oficial , passo a passo
+relativo -> pode ser algo informal
+
+o "/" vc desce um nivel na pagina
+
+/html/body/form
+
+dica : se vc quer um elemento , busque ele na pagina e pra fazer o xpath , va subindo ate a raiz
+
+FORMA ABSOLUTA
+ex : 
+    <h3>Item </h3> -> h3->form -> center -> body > html , entao ,
+	/html/body/center/form/h3
+	
+FORMA RALTIVA 
+
+//h3 -> ele faz uma varrdura , apartir daquele ponto
+
+OUTRAS FORMAS 
+
+//input[@id='buttonSimple'] -> busca direta
+//*[@id='buttonSimple']     -> faça uma varredura buscabdo todas as tags  um id que tenha o nome de
+
+SICRONISMOS -> buscar um elemento que ainda nao apareceu - aula 60 a 65
+
+	
